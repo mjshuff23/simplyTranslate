@@ -1,0 +1,2 @@
+quart
+git+https://codeberg.org/SimpleWeb/SimplyTranslate-Engines

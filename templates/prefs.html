@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>SimplyTranslate - Preferences</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <meta name="description" content="Experience simple and private Google translations">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+
+        <!-- CSP Content Security Policy -->
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+
+        <!-- Referrer Policy -->
+        <meta name="referrer" content="no-referrer">
+
+
+        <style>
+        .center {
+            text-align: center;
+        }
+
+        body {
+            max-width: 800px;
+            margin: 10px auto;
+            font-family: sans-serif;
+        }
+
+        button {
+            font-size: 1rem;
+            padding: 4px 10px;
+            border: 2px solid #888888;
+        }
+
+        button:focus {
+            border-color: #478061;
+            outline: 1px solid #478061;
+        }
+
+        @media screen and (prefers-color-scheme: dark) {
+            body {
+                background-color: #212529;
+                color: #f8f9fa;
+            }
+
+            a:visited {
+                color: #9759f6;
+            }
+
+            a {
+                color: #599bf6;
+            }
+
+            button {
+                background-color: #131618;
+                border-color: #495057;
+                color: #f8f9fa;
+            }
+        }
+        </style>
+    </head>
+
+    <body>
+        <header class="center"><h1>SimplyTranslate</h1></header>
+
+        <h2>Preferences</h2>
+        <hr>
+
+        <form action="/prefs" method="POST">
+            <label for="use_text_fields">Use text fields for language selection:</label>
+            <input
+                type="checkbox"
+                id="use_text_fields"
+                name="use_text_fields"
+                {% if use_text_fields %}checked{% endif %}>
+
+            <br>
+
+            <label for="tts_enabled">Enable text-to-speech:</label>
+
+            <input
+              type="checkbox"
+              id="tts_enabled"
+              name="tts_enabled"
+              {% if tts_enabled %}checked{% endif %}>
+
+            <br>
+            <br>
+
+            <button type="submit">Save preferences</button>
+        </form>
+
+        <br>
+
+        <a href="/">Back To The Translator</a>
+    </body>
+</html>
